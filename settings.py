@@ -1,0 +1,59 @@
+import math
+import pygame as pg
+
+KEYS = {
+    'TURN_LEFT': pg.K_LEFT,
+    'TURN_RIGHT': pg.K_RIGHT,
+    'FORWARD': pg.K_UP,
+    'BACK': pg.K_DOWN,
+    'PITCH_UP': pg.K_s,
+    'PITCH_DOWN': pg.K_w,
+    'YAW_LEFT': pg.K_a,
+    'YAW_RIGHT': pg.K_d,
+    'UP': pg.K_PERIOD,
+    'DOWN': pg.K_COMMA,
+#    'STRAFE_L': pg.K_LEFT,
+#    'STRAFE_R': pg.K_RIGHT,
+    'INTERACT': pg.K_f,
+    'WEAPON_1': pg.K_1,
+    'WEAPON_2': pg.K_2,
+    'WEAPON_3': pg.K_3,
+}
+
+SEED = 34235864835
+
+# chunk
+CHUNK_SIZE = 11
+H_CHUNK_SIZE = CHUNK_SIZE // 2
+CHUNK_AREA = CHUNK_SIZE * CHUNK_SIZE
+CHUNK_VOL = CHUNK_AREA * CHUNK_SIZE
+CHUNK_SPHERE_RADIUS = H_CHUNK_SIZE * math.sqrt(3)
+
+# world
+WORLD_W, WORLD_H = 2, 2
+WORLD_D = WORLD_W
+WORLD_AREA = WORLD_W * WORLD_D
+WORLD_VOL = WORLD_AREA * WORLD_H
+
+# world center
+CENTER_XZ = WORLD_W * H_CHUNK_SIZE
+CENTER_Y = WORLD_H * H_CHUNK_SIZE
+
+# Constants
+GRID_WIDTH, GRID_HEIGHT = 11, 11
+GRID_SIZE = 50
+SCREEN_WIDTH, SCREEN_HEIGHT = GRID_WIDTH * GRID_SIZE, GRID_HEIGHT * GRID_SIZE
+PILLAR_COUNT = 0
+PLAYER_RADIUS = GRID_SIZE // 2 - 1
+DAMPING = 0.975  # Damping factor for deceleration
+ROTATION_DAMPING = 0.9  # Damping factor for rotational deceleration
+PLAYER_ROTATION_ACCELERATION = 0.5
+MAX_ROTATION_SPEED = 10
+PLAYER_SIZE = 50
+
+# Colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
